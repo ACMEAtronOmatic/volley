@@ -23,6 +23,10 @@ public class NoCache implements Cache {
     @Override
     public void clear() {}
 
+    @Override public void purgeUrlPattern(String urlPattern) {
+        throw new Error();
+    }
+
     @Override
     public Entry get(String key) {
         return null;

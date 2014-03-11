@@ -107,6 +107,19 @@ public class DiskBasedCache implements Cache {
         VolleyLog.d("Cache cleared.");
     }
 
+    @Override public synchronized void purgeUrlPattern(String urlPattern) {
+        ArrayList<String> keysToRemove = new ArrayList<String>();
+        for (String k : mEntries.keySet()) {
+            if (k.matches(urlPattern)) {
+                keysToRemove.add(k);
+            }
+        }
+
+        for (String k : keysToRemove) {
+            remove(k);
+        }
+    }
+
     /** Returns the cache entry with the specified key if it exists, null otherwise. */
     @Override
     public synchronized Entry get(String key) {

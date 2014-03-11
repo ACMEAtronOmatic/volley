@@ -62,6 +62,8 @@ public interface Cache {
     /** Empties the cache. */
     void clear();
 
+    void purgeUrlPattern(String urlPattern);
+
     /** Data and metadata for an entry returned by the cache. */
     class Entry {
         /** The data returned from cache. */
