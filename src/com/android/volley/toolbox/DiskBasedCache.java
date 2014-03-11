@@ -31,6 +31,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -98,6 +99,19 @@ public class DiskBasedCache implements Cache {
         mEntries.clear();
         mTotalSize = 0;
         VolleyLog.d("Cache cleared.");
+    }
+
+    @Override public synchronized void purgeUrlPattern(String urlPattern) {
+        ArrayList<String> keysToRemove = new ArrayList<String>();
+        for (String k : mEntries.keySet()) {
+            if (k.matches(urlPattern)) {
+                keysToRemove.add(k);
+            }
+        }
+
+        for (String k : keysToRemove) {
+            remove(k);
+        }
     }
 
     /**

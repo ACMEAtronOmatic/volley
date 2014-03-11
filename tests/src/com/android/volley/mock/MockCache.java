@@ -26,6 +26,10 @@ public class MockCache implements Cache {
         clearCalled = true;
     }
 
+    @Override public void purgeUrlPattern(String urlPattern) {
+        throw new Error();
+    }
+
     public boolean getCalled = false;
     private Entry mFakeEntry = null;
 
