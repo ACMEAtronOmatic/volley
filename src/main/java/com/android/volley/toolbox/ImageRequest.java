@@ -194,6 +194,7 @@ public class ImageRequest extends Request<Bitmap> {
     private Response<Bitmap> doParse(NetworkResponse response) {
         byte[] data = response.data;
         BitmapFactory.Options decodeOptions = new BitmapFactory.Options();
+        willDecodeBitmapWithOptions(decodeOptions);
         Bitmap bitmap = null;
         if (mMaxWidth == 0 && mMaxHeight == 0) {
             decodeOptions.inPreferredConfig = mDecodeConfig;
@@ -237,6 +238,9 @@ public class ImageRequest extends Request<Bitmap> {
         } else {
             return Response.success(bitmap, HttpHeaderParser.parseCacheHeaders(response));
         }
+    }
+
+    protected void willDecodeBitmapWithOptions(BitmapFactory.Options decodeOptions) {
     }
 
     @Override
