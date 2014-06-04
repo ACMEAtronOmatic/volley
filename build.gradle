@@ -1,25 +1,35 @@
-// NOTE: The only changes that belong in this file are the definitions
-// of tool versions (gradle plugin, compile SDK, build tools), so that
-// Volley can be built via gradle as a standalone project.
-//
-// Any other changes to the build config belong in rules.gradle, which
-// is used by projects that depend on Volley but define their own
-// tools versions across all dependencies to ensure a consistent build.
-
 buildscript {
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.14.+'
+        classpath 'com.android.tools.build:gradle:0.9.+'
     }
 }
 
-apply plugin: 'com.android.library'
+apply plugin: 'android-library'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion = '21.1.0'
-}
+    buildToolsVersion = 19
 
-apply from: 'rules.gradle'
+    sourceSets {
+        defaultConfig {
+            testPackageName 'com.android.volley.tests'
+        }
+
+        main {
+            assets.srcDirs       = ['assets']
+            res.srcDirs          = ['res']
+            aidl.srcDirs         = ['src']
+            resources.srcDirs    = ['src']
+            renderscript.srcDirs = ['src']
+            java.srcDirs         = ['src']
+            manifest.srcFile 'AndroidManifest.xml'
+
+        }
+
+        instrumentTest.setRoot('tests')
+        instrumentTest.java.srcDirs = ['tests/src']
+    }
+}
