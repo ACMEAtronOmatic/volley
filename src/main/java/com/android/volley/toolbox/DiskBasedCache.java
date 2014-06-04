@@ -195,6 +195,7 @@ public class DiskBasedCache implements Cache {
                 file.delete();
             }
         }
+        VolleyLog.d("Cache @%s initialized. %d entries", mRootDirectory, mEntries.size());
     }
 
     /**

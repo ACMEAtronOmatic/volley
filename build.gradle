@@ -23,7 +23,7 @@ buildscript {
     }
 }
 
-apply plugin: 'com.android.library'
+apply plugin: 'android-library'
 
 repositories {
     jcenter()
