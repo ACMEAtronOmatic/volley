@@ -23,6 +23,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 
 import com.android.volley.VolleyLog.MarkerLog;
+import com.android.volley.toolbox.BasicNetwork;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -109,6 +110,9 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     /** Whether the request should be retried in the event of an HTTP 5xx (server) error. */
     private boolean mShouldRetryServerErrors = false;
+
+    /** Threshold at which we should log the request (even when debug logging is not enabled). */
+    private static final long SLOW_REQUEST_THRESHOLD_MS = BasicNetwork.SLOW_REQUEST_THRESHOLD_MS;
 
     /** The retry policy for this request. */
     private RetryPolicy mRetryPolicy;
