@@ -3,6 +3,4 @@ gen
 .gradle
 build
 .settings
-target
-*.iml
-.idea
+volley.iml
