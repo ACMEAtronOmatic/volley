@@ -106,6 +106,11 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     /** Whether the request should be retried in the event of an HTTP 5xx (server) error. */
     private boolean mShouldRetryServerErrors = false;
+    // A cheap variant of request tracing used to dump slow requests.
+    private long mRequestBirthTime = 0;
+
+    /** Threshold at which we should log the request (even when debug logging is not enabled). */
+    private static final long SLOW_REQUEST_THRESHOLD_MS = BasicNetwork.SLOW_REQUEST_THRESHOLD_MS;
 
     /** The retry policy for this request. */
     private RetryPolicy mRetryPolicy;
