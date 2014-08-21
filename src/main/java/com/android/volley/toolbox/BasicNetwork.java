@@ -180,8 +180,8 @@ public class BasicNetwork implements Network {
                 } else {
                     throw new NoConnectionError(e);
                 }
-                VolleyLog.e("Unexpected response code %d for %s", statusCode, request.getUrl());
                 NetworkResponse networkResponse;
+                //VolleyLog.e("Unexpected response code %d for %s", statusCode, request.getUrl());
                 if (responseContents != null) {
                     networkResponse =
                             new NetworkResponse(
