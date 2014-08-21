@@ -215,8 +215,7 @@ public class ImageRequest extends Request<Bitmap> {
         }
     }
 
-    protected void willDecodeBitmapWithOptions(BitmapFactory.Options decodeOptions) {
-    }
+    protected void willDecodeBitmapWithOptions(BitmapFactory.Options decodeOptions) { }
 
     @Override
     protected void deliverResponse(Bitmap response) {
