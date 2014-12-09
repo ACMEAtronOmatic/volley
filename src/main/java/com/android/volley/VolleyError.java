@@ -52,4 +52,11 @@ public class VolleyError extends Exception {
     public long getNetworkTimeMs() {
         return networkTimeMs;
     }
+
+    @Override public String toString() {
+        return super.toString() + " " + (networkResponse == null ?
+                null :
+                (networkResponse.statusCode + " " + networkResponse.headers + " " +
+                        new String(networkResponse.data)));
+    }
 }
