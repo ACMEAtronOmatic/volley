@@ -45,4 +45,11 @@ public class VolleyError extends Exception {
         super(cause);
         networkResponse = null;
     }
+
+    @Override public String toString() {
+        return super.toString() + " " + (networkResponse == null ?
+                null :
+                (networkResponse.statusCode + " " + networkResponse.headers + " " +
+                        new String(networkResponse.data)));
+    }
 }
