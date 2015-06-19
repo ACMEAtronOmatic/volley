@@ -112,7 +112,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     private boolean mShouldRetryServerErrors = false;
 
     /** Threshold at which we should log the request (even when debug logging is not enabled). */
-    private static final long SLOW_REQUEST_THRESHOLD_MS = BasicNetwork.SLOW_REQUEST_THRESHOLD_MS;
+    private static final long SLOW_REQUEST_THRESHOLD_MS = 25000;//
+    // BasicNetwork.SLOW_REQUEST_THRESHOLD_MS;
 
     /** The retry policy for this request. */
     private RetryPolicy mRetryPolicy;
