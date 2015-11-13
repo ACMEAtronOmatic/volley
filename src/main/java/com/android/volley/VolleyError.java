@@ -47,6 +47,11 @@ public class VolleyError extends Exception {
         networkResponse = null;
     }
 
+    public byte[] getData() {
+        if (networkResponse != null) return networkResponse.data;
+        return null;
+    }
+
     /* package */ void setNetworkTimeMs(long networkTimeMs) {
        this.networkTimeMs = networkTimeMs;
     }
