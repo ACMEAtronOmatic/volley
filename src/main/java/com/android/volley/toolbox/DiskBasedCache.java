@@ -150,7 +150,7 @@ public class DiskBasedCache implements Cache {
                 //noinspection ThrowFromFinallyBlock
                 cis.close();
             }
-        } catch (IOException e) {
+        } catch (IOException | NegativeArraySizeException e) {
             VolleyLog.d("%s: %s", file.getAbsolutePath(), e.toString());
             remove(key);
             return null;
