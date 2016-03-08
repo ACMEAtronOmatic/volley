@@ -73,7 +73,7 @@ public class StringRequest extends Request<String> {
     }
 
     @Override
-    protected void deliverResponse(String response) {
+    public void deliverResponse(String response) {
         Response.Listener<String> listener;
         synchronized (mLock) {
             listener = mListener;
@@ -85,7 +85,7 @@ public class StringRequest extends Request<String> {
 
     @Override
     @SuppressWarnings("DefaultCharset")
-    protected Response<String> parseNetworkResponse(NetworkResponse response) {
+    public Response<String> parseNetworkResponse(NetworkResponse response) {
         String parsed;
         try {
             parsed = new String(response.data, HttpHeaderParser.parseCharset(response.headers));

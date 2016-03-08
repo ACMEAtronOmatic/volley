@@ -178,7 +178,7 @@ public class ImageRequest extends Request<Bitmap> {
     }
 
     @Override
-    protected Response<Bitmap> parseNetworkResponse(NetworkResponse response) {
+    public Response<Bitmap> parseNetworkResponse(NetworkResponse response) {
         // Serialize all decode on a global lock to reduce concurrent heap usage.
         synchronized (sDecodeLock) {
             try {
@@ -251,7 +251,7 @@ public class ImageRequest extends Request<Bitmap> {
     }
 
     @Override
-    protected void deliverResponse(Bitmap response) {
+    public void deliverResponse(Bitmap response) {
         Response.Listener<Bitmap> listener;
         synchronized (mLock) {
             listener = mListener;
