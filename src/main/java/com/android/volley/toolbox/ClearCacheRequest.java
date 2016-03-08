@@ -60,11 +60,10 @@ public class ClearCacheRequest extends Request<Object> {
     }
 
     @Override
-    protected Response<Object> parseNetworkResponse(NetworkResponse response) {
+    public Response<Object> parseNetworkResponse(NetworkResponse response) {
         return null;
     }
 
     @Override
-    protected void deliverResponse(Object response) {
-    }
+    public void deliverResponse(Object response) { }
 }

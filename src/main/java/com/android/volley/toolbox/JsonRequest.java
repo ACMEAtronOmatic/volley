@@ -74,7 +74,7 @@ public abstract class JsonRequest<T> extends Request<T> {
     }
 
     @Override
-    protected void deliverResponse(T response) {
+    public void deliverResponse(T response) {
         Response.Listener<T> listener;
         synchronized (mLock) {
             listener = mListener;
@@ -85,7 +85,7 @@ public abstract class JsonRequest<T> extends Request<T> {
     }
 
     @Override
-    abstract protected Response<T> parseNetworkResponse(NetworkResponse response);
+    abstract public Response<T> parseNetworkResponse(NetworkResponse response);
 
     /**
      * @deprecated Use {@link #getBodyContentType()}.
