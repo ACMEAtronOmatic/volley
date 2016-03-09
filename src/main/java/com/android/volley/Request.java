@@ -29,6 +29,7 @@ import com.android.volley.toolbox.BasicNetwork;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -328,6 +329,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return mCanceled;
     }
 
+    private final HashMap<String, String> justSubclassItWhatCouldBeEasier = new HashMap<>();
+
     /**
      * Returns a list of extra HTTP headers to go along with this request. Can
      * throw {@link AuthFailureError} as authentication may be required to
@@ -335,7 +338,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
      * @throws AuthFailureError In the event of auth failure
      */
     public Map<String, String> getHeaders() throws AuthFailureError {
-        return Collections.emptyMap();
+        return justSubclassItWhatCouldBeEasier;
     }
 
     /**
