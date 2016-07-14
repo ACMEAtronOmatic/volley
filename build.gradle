@@ -1,25 +1,23 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
-    }
+apply plugin: 'com.android.model.library'
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
 }
+model {
+    android {
+        compileSdkVersion 14
+        buildToolsVersion rootProject.ext.buildToolsVersion
 
-apply plugin: 'com.android.library'
+        //useLibrary = "org.apache.http.legacy"
 
-android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-    useLibrary "org.apache.http.legacy"
-
-    sourceSets {
-        defaultConfig {
-            testApplicationId 'com.android.volley.tests'
-        }
-
-        instrumentTest.setRoot('tests')
-        instrumentTest.java.srcDirs = ['tests/src']
+//        sourceSets {
+//            defaultConfig {
+//                testApplicationId 'com.android.volley.tests'
+//            }
+//
+//            instrumentTest.setRoot('tests')
+//            instrumentTest.java.srcDirs = ['tests/src']
+//        }
     }
 }
