@@ -86,7 +86,7 @@ public class BasicNetwork implements Network {
     public NetworkResponse performRequest(Request<?> request) throws VolleyError {
         long requestStart = SystemClock.elapsedRealtime();
         while (true) {
-            HttpResponse httpResponse = null;
+            VolleyHttpResponse httpResponse = null;
             byte[] responseContents = null;
             Map<String, String> responseHeaders = Collections.emptyMap();
             try {

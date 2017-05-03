@@ -72,7 +72,7 @@ public class HttpClientStack implements HttpStack {
     }
 
     @Override
-    public HttpResponse performRequest(Request<?> request, Map<String, String> additionalHeaders)
+    public VolleyHttpResponse performRequest(Request<?> request, Map<String, String> additionalHeaders)
             throws IOException, AuthFailureError {
         HttpUriRequest httpRequest = createHttpRequest(request, additionalHeaders);
         addHeaders(httpRequest, additionalHeaders);
@@ -84,7 +84,7 @@ public class HttpClientStack implements HttpStack {
         // data collection and possibly different for wifi vs. 3G.
         HttpConnectionParams.setConnectionTimeout(httpParams, 5000);
         HttpConnectionParams.setSoTimeout(httpParams, timeoutMs);
-        return mClient.execute(httpRequest);
+        return new VolleyBasicHttpResponse(mClient.execute(httpRequest));
     }
 
     /**
