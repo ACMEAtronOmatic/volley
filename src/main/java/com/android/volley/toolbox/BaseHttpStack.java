@@ -64,7 +64,7 @@ public abstract class BaseHttpStack implements HttpStack {
      */
     @Deprecated
     @Override
-    public final org.apache.http.HttpResponse performRequest(
+    public org.apache.http.HttpResponse performRequest(
             Request<?> request, Map<String, String> additionalHeaders)
             throws IOException, AuthFailureError {
         HttpResponse response = executeRequest(request, additionalHeaders);
