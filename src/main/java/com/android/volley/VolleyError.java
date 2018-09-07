@@ -16,6 +16,8 @@
 
 package com.android.volley;
 
+import java.nio.charset.Charset;
+
 /** Exception style class encapsulating Volley errors */
 @SuppressWarnings("serial")
 public class VolleyError extends Exception {
@@ -59,9 +61,8 @@ public class VolleyError extends Exception {
     }
 
     @Override public String toString() {
-        return super.toString() + " " + (networkResponse == null ?
-                null :
+        return super.toString() + " " + (networkResponse == null ? null :
                 (networkResponse.statusCode + " " + networkResponse.headers + " " +
-                        new String(networkResponse.data)));
+                        new String(networkResponse.data, Charset.forName("utf-8"))));
     }
 }
