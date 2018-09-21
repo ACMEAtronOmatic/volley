@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    defaultConfig {
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:unchecked" << "-Werror"
+}
+
+dependencies {
+    compileOnly "com.android.support:support-annotations:27.1.1"
+}
+
+// this would be better but its fucking hopeless because google constantly fucking changes the build plugin api
+// and it will never fucking work with whatever we end up using to build the app
+//apply from: 'rules.gradle'
