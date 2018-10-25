@@ -24,6 +24,6 @@ dependencies {
     compileOnly "com.android.support:support-annotations:27.1.1"
 }
 
-// this would be better but its fucking hopeless because google constantly fucking changes the build plugin api
-// and it will never fucking work with whatever we end up using to build the app
+// this would be better but its hopeless because google constantly changes the build plugin api
+// and it will never work with whatever we end up using to build the app
 //apply from: 'rules.gradle'
