@@ -366,6 +366,10 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         return justSubclassItWhatCouldBeEasier;
     }
 
+    public Map<String, String> safeGetHeaders() {
+        return justSubclassItWhatCouldBeEasier;
+    }
+
     /**
      * Returns a Map of POST parameters to be used for this request, or null if a simple GET should
      * be used. Can throw {@link AuthFailureError} as authentication may be required to provide
