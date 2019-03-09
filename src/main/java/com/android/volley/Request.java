@@ -20,14 +20,13 @@ import android.net.TrafficStats;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.CallSuper;
-import android.support.annotation.GuardedBy;
-import android.support.annotation.Nullable;
+import androidx.annotation.CallSuper;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import com.android.volley.VolleyLog.MarkerLog;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
