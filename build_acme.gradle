@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        targetSdkVersion 26
+        targetSdkVersion 28
         multiDexEnabled true
         minSdkVersion 15
         consumerProguardFiles 'consumer-proguard-rules.pro'
@@ -24,7 +24,7 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compileOnly 'androidx.annotation:annotation:1.0.0'
+    compileOnly 'androidx.annotation:annotation:1.0.0-beta01'
 }
 
 // this would be better but its hopeless because google constantly changes the build plugin api
