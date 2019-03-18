@@ -24,7 +24,7 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compileOnly 'androidx.annotation:annotation:1.0.0-beta01'
+    compileOnly 'androidx.annotation:annotation:1.0.0'
 }
 
 // this would be better but its hopeless because google constantly changes the build plugin api
