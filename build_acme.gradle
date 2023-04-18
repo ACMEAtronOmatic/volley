@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.android.volley'
     useLibrary 'org.apache.http.legacy'
 
     compileSdk rootProject.ext.compileSdk
