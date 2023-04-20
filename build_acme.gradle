@@ -7,14 +7,14 @@ android {
     compileSdk rootProject.ext.compileSdk
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     defaultConfig {
-        targetSdk 28
+        targetSdk 33
         multiDexEnabled true
-        minSdk 15
+        minSdk 23
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 }
