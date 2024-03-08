@@ -17,6 +17,14 @@ android {
         minSdk 23
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
+
+    sourceSets {
+        test {
+            // CI will run tests on all modules, we don't want Volley tests running,
+            // so these are excluded here.
+            java.srcDirs = []
+        }
+    }
 }
 
 tasks.withType(JavaCompile) {
@@ -26,6 +34,7 @@ tasks.withType(JavaCompile) {
 dependencies {
     compileOnly 'androidx.annotation:annotation:1.4.0'
 }
+
 
 // this would be better but its hopeless because google constantly changes the build plugin api
 // and it will never work with whatever we end up using to build the app
