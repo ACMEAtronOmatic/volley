@@ -14,7 +14,7 @@ android {
     defaultConfig {
         targetSdk 33
         multiDexEnabled true
-        minSdk 23
+        minSdk 26
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
