@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Provides a thread for performing cache triage on a queue of requests.
@@ -54,6 +55,8 @@ public class CacheDispatcher extends Thread {
     /** Manage list of waiting requests and de-duplicate requests with same cache key. */
     private final WaitingRequestManager mWaitingRequestManager;
 
+    private static final AtomicInteger instanceCounter = new AtomicInteger();
+
     /**
      * Creates a new cache triage dispatcher thread. You must call {@link #start()} in order to
      * begin processing.
@@ -68,6 +71,8 @@ public class CacheDispatcher extends Thread {
             BlockingQueue<Request<?>> networkQueue,
             Cache cache,
             ResponseDelivery delivery) {
+        super("VolleyCache-" + instanceCounter.getAndIncrement());
+
         mCacheQueue = cacheQueue;
         mNetworkQueue = networkQueue;
         mCache = cache;

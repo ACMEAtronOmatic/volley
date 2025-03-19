@@ -23,6 +23,7 @@ import android.os.Process;
 import android.os.SystemClock;
 import androidx.annotation.VisibleForTesting;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Provides a thread for performing network dispatch from a queue of requests.
@@ -45,6 +46,8 @@ public class NetworkDispatcher extends Thread {
     /** Used for telling us to die. */
     private volatile boolean mQuit = false;
 
+    private static final AtomicInteger instanceCounter = new AtomicInteger();
+
     /**
      * Creates a new network dispatcher thread. You must call {@link #start()} in order to begin
      * processing.
@@ -59,6 +62,8 @@ public class NetworkDispatcher extends Thread {
             Network network,
             Cache cache,
             ResponseDelivery delivery) {
+        super("VolleyNetwork-" + instanceCounter.getAndIncrement());
+
         mQueue = queue;
         mNetwork = network;
         mCache = cache;
